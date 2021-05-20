@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Example;
 use App\Collaborator;
+use App\Utilities\Filter;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -25,6 +26,11 @@ class AppServiceProvider extends ServiceProvider {
             $collaborator = new Collaborator();
             $foo = 'foobar';
             return new Example($collaborator, $foo);
+        });
+
+        // Custom Facade
+        $this->app->bind('filter', function () {
+            return new Filter();
         });
     }
 

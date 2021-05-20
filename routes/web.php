@@ -72,3 +72,8 @@ Route::get('/articles/create', 'ArticlesController@create'); //ORDER matters
 Route::get('/articles/{articles}', 'ArticlesController@show')->name('articles.show');
 Route::get('/articles/{articles}/edit', 'ArticlesController@edit');
 Route::put('/articles/{article}', 'ArticlesController@update');
+
+
+Route::get('facade', function (){
+    \App\Support\Facades\Filter::get('fuck', 'yeah');
+});
